@@ -1,0 +1,11 @@
+# Nunca versionar ficheiros locais sensíveis ou temporários
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+node_modules/
+dist/
+coverage/
+*.log
+# Não colocar aqui a chave pública publishable/anon: esta pode ficar no config.js.
