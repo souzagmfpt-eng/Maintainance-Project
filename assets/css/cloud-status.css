@@ -1,0 +1,11 @@
+/* Estado cloud e sessão no cabeçalho do dashboard */
+.cloud-status{display:inline-flex;align-items:center;gap:7px;border-color:#dbe8e6!important;background:#f6fbfa!important;color:#496a68!important;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cloud-status::before{content:"";width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#d3a047}
+.cloud-status[data-state="online"]::before{background:#1c987a;box-shadow:0 0 0 3px #1c987a1c}
+.cloud-status[data-state="busy"]::before{background:#d3a047;box-shadow:0 0 0 3px #d3a0471c}
+.cloud-status[data-state="error"]{color:#a23843!important;background:#fff5f5!important;border-color:#f0d4d7!important}
+.cloud-status[data-state="error"]::before{background:#c94351}
+.signed-in-label{color:#526a76!important;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#remoteUpdateNotice{position:fixed;z-index:99990;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:12px;align-items:center;max-width:min(760px,calc(100vw - 24px));padding:12px 14px;background:#183c48;color:#fff;border:1px solid #52737b;border-radius:12px;box-shadow:0 12px 40px #12313d30;font:13px/1.4 system-ui,sans-serif}
+#remoteUpdateNotice button{border:1px solid #9cb8bc;background:#fff;color:#23414a;border-radius:7px;padding:7px 10px;font-weight:700;white-space:nowrap}
+@media(max-width:760px){.cloud-status{max-width:135px}.signed-in-label{max-width:135px}#remoteUpdateNotice{align-items:flex-start;flex-direction:column;left:12px;right:12px;bottom:12px;transform:none;max-width:none}}

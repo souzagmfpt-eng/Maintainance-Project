@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Iniciar sessão | Gestão de Manutenção</title>
+  <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="auth-visual" aria-label="Gestão de manutenção">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">❄</span><span><strong>Gestão de Manutenção</strong><small>Operação de Congelados</small></span></div>
+      <div class="auth-copy">
+        <div class="eyebrow">CENTRO DE CONTROLO</div>
+        <h1>Manutenção organizada. Operação sob controlo.</h1>
+        <p>Ordens de trabalho, inventário, compras, fornecedores e documentação técnica num único espaço de trabalho.</p>
+        <div class="auth-feature-list">
+          <div class="auth-feature"><b>✓</b> Ordens de trabalho e indicadores de manutenção</div>
+          <div class="auth-feature"><b>✓</b> Inventário, fornecedores e pedidos de compra</div>
+          <div class="auth-feature"><b>✓</b> Manuais PDF protegidos no armazenamento cloud</div>
+        </div>
+      </div>
+      <div class="auth-foot">ACESSO RESTRITO · UTILIZADORES AUTORIZADOS</div>
+    </section>
+    <section class="auth-panel">
+      <h2>Bem-vindo de volta</h2>
+      <p class="auth-subtitle">Inicie sessão com a conta que lhe foi atribuída. O registo de novas contas não é disponibilizado nesta página.</p>
+      <div id="authMessage" class="message" role="alert" aria-live="polite"></div>
+      <form id="loginForm" autocomplete="on">
+        <div class="field"><label for="email">Email profissional</label><input id="email" name="email" type="email" autocomplete="username" placeholder="nome@empresa.pt" required></div>
+        <div class="field"><label for="password">Palavra-passe</label><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Introduza a palavra-passe" required minlength="8"></div>
+        <div class="auth-actions"><button class="btn btn-primary" id="loginButton" type="submit">Iniciar sessão <span aria-hidden="true">→</span></button></div>
+      </form>
+      <p class="auth-note">O acesso é gerido pelo Supabase Authentication. Se ainda não tem uma conta ou perdeu o acesso, contacte o administrador do sistema.</p>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/auth-service.js"></script>
+  <script src="../assets/js/controllers/login-controller.js"></script>
+</body>
+</html>
