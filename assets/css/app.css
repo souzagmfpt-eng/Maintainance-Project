@@ -815,3 +815,116 @@ body.worktime-mode{height:100vh;height:100dvh;overflow:hidden!important}
 .inventory-detail-foot{position:sticky;bottom:0;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;padding:15px 23px 20px;background:#fff;border-top:1px solid #e1eaf2}
 .inventory-detail-foot .btn{min-height:38px}
 @media(max-width:540px){.inventory-detail-overlay{padding:9px}.inventory-detail-dialog{border-radius:13px;max-height:92dvh}.inventory-detail-head{padding:16px}.inventory-detail-content{padding:14px 14px 7px}.inventory-detail-grid{grid-template-columns:1fr;gap:8px}.inventory-detail-field.full{grid-column:auto}.inventory-detail-foot{padding:12px 14px 15px}.inventory-detail-foot .btn{flex:1}.inventory-detail-pdf{align-items:flex-start;flex-wrap:wrap}.inventory-detail-pdf-name{flex-basis:calc(100% - 40px)}}
+
+
+/* ===== Navegação móvel compacta e layout responsivo ===== */
+.mobile-menu-toggle,.mobile-menu-close,.mobile-menu-backdrop{display:none}
+html{scroll-padding-top:16px}
+body{min-width:320px}
+.main,.side,.view,.card,.section,.tablecard,.fields,.field{min-width:0}
+.main{width:auto;max-width:none}
+button,input,select,textarea{max-width:100%}
+img,svg,canvas{max-width:100%}
+.tablecard,.table-wrap,.weekly-table-wrap,.week-agenda-scroll{max-width:100%;overscroll-behavior-x:contain}
+@media(max-width:760px){
+  body{overflow-x:hidden}
+  .side#appSidebar{
+    position:fixed;inset:0 auto 0 0;width:min(292px,calc(100vw - 48px));height:100dvh;
+    padding:18px 14px calc(22px + env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain;
+    transform:translateX(-105%);visibility:hidden;transition:transform .22s ease,visibility .22s ease;
+    z-index:10002;box-shadow:18px 0 48px rgba(7,24,40,.24);border-radius:0 18px 18px 0
+  }
+  body.mobile-nav-open .side#appSidebar{transform:translateX(0);visibility:visible}
+  .side#appSidebar .brand{display:flex;align-items:center;gap:11px;text-align:left;font-size:15px;padding:3px 38px 18px 2px;margin-bottom:18px}
+  .side#appSidebar .brand>span:last-child{display:block}
+  .side#appSidebar .brand small{display:block;font-size:10px}
+  .side#appSidebar .brand-mark{flex:0 0 38px;width:38px;height:38px;margin:0}
+  .side#appSidebar .navlabel{display:block;margin:20px 8px 8px;font-size:9px;letter-spacing:1.35px}
+  .side#appSidebar .nav{margin-top:0}
+  .side#appSidebar .nav button{display:flex;justify-content:flex-start;gap:12px;min-height:45px;padding:11px 12px;margin:3px 0;font-size:14px;border-radius:10px;text-align:left}
+  .side#appSidebar .nav button span:last-child{display:inline;line-height:1.25}
+  .side#appSidebar .nav button.active:after{right:8px;width:4px;height:4px}
+  .mobile-menu-close{position:absolute;display:grid;place-items:center;top:15px;right:13px;width:34px;height:34px;border:1px solid #ffffff28;border-radius:10px;background:#ffffff12;color:#fff;font-size:24px;line-height:1;z-index:2}
+  .mobile-menu-backdrop{position:fixed;inset:0;z-index:10001;background:rgba(12,27,43,.46);backdrop-filter:blur(2px)}
+  .mobile-menu-backdrop:not([hidden]){display:block}
+  .main{margin:0!important;padding:12px 12px calc(26px + env(safe-area-inset-bottom))!important;width:100%;min-width:0}
+  .mobile-menu-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:39px;padding:8px 12px;margin:0 0 13px;border:1px solid #d8e2eb;border-radius:10px;background:#fff;color:#203b55;box-shadow:0 2px 7px rgba(20,43,69,.05);font-size:12px;font-weight:800}
+  .mobile-menu-toggle span:first-child{font-size:17px;line-height:1}
+  .top{display:flex;flex-direction:column;align-items:stretch;gap:10px;margin:0 0 15px;padding:0 0 14px;border-bottom:1px solid #dfe7ef}
+  .top>div:first-child{min-width:0}
+  .top .eyebrow{font-size:9px;letter-spacing:1.1px;line-height:1.4}
+  .top h1{font-size:clamp(21px,6vw,26px);line-height:1.15;margin:5px 0}
+  .top .muted{font-size:12px;line-height:1.45}
+  .top .actions{display:flex;justify-content:flex-start;align-items:center;gap:6px;width:100%;min-width:0}
+  .top .actions .btn{min-height:35px;padding:8px 10px;font-size:11px;white-space:normal;overflow-wrap:anywhere}
+  .top .actions #today{display:none}
+  .top .actions #cloudSyncStatus{flex:1;min-width:0}
+  .top .actions .signed-in-label{max-width:100%;min-width:0;overflow-wrap:anywhere}
+  .kpis,.analytics-kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .kpi{padding:12px;min-width:0;border-radius:12px}
+  .kpi .label{font-size:10px;line-height:1.3;overflow-wrap:anywhere}
+  .kpi strong,.analytics-kpis .kpi strong{font-size:clamp(19px,5vw,23px);line-height:1.15;overflow-wrap:anywhere}
+  .kpi small{font-size:10px;line-height:1.35}
+  .charts,.metricCharts,.analytics-charts{grid-template-columns:minmax(0,1fr)!important;gap:10px}
+  .charts .card:last-child,.analytics-charts .card:last-child{grid-column:auto}
+  .card,.section,.tabletop,.formcard{border-radius:12px}
+  .section{display:flex;align-items:stretch;flex-direction:column;gap:9px;margin:19px 0 10px}
+  .section h2{font-size:17px;line-height:1.25;margin:0}
+  .section .actions,.actions{gap:6px;min-width:0}
+  .section .actions .btn,.actions .btn{min-height:36px;padding:8px 10px;font-size:11px}
+  .tabletop{display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:12px}
+  .tabletop h3{font-size:14px}
+  .tools{display:flex;flex-wrap:wrap;gap:7px;width:100%;min-width:0}
+  .search{flex:1 1 100%;width:100%;min-width:0}
+  .tools select,.tools input,.tools .btn{min-width:0;max-width:100%;font-size:12px}
+  .tablecard{overflow:hidden}
+  .tablecard table{min-width:680px}
+  .tablecard{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .fields{grid-template-columns:minmax(0,1fr)!important;gap:11px}
+  .field,.field.full{grid-column:auto;min-width:0}
+  .field label{font-size:12px;line-height:1.35}
+  input,select,textarea{min-width:0;max-width:100%;font-size:16px}
+  .detailhead{display:flex;flex-direction:column;align-items:stretch;gap:10px}
+  .detailhead .actions{width:100%}
+  .detailhead .actions .btn{flex:1}
+  .detailgrid{grid-template-columns:minmax(0,1fr)!important;gap:10px}
+  .stack{min-width:0}
+  .formcard{padding:13px}
+  .formcard h3{font-size:15px;line-height:1.3}
+  .formcard>p,.module-note{font-size:12px;line-height:1.5}
+  .taskadd,.link-existing-row{grid-template-columns:minmax(0,1fr)!important}
+  .taskadd .btn,.link-existing-row .btn{width:100%}
+  .modalbg{padding:10px;align-items:center}
+  .modal{width:100%;max-width:100%;max-height:calc(100dvh - 20px);overflow:auto;padding:15px;border-radius:14px}
+  .modalfoot{display:flex;flex-wrap:wrap;gap:8px}
+  .modalfoot .btn{flex:1}
+  .chart-settings-panel,.chart-results-panel{width:100%;max-width:100%;max-height:92dvh;overflow:auto;padding:14px}
+  .chart-settings-head,.weekly-modal-head,.slice-modal-head{gap:8px;align-items:flex-start}
+  .chart-settings-head h2,.weekly-modal-head h2,.slice-modal-head h2{font-size:18px;line-height:1.25}
+  .chart-settings-foot{display:flex;flex-wrap:wrap;gap:7px}
+  .chart-settings-foot .btn{flex:1}
+  .month-calendar-grid{grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
+  .month-calendar-day{min-width:0;overflow:hidden}
+  .week-agenda-scroll{overflow-x:auto}
+  .week-agenda{min-width:720px}
+  .week-day-row{grid-template-columns:64px minmax(0,1fr);gap:6px}
+  .week-axis{margin-left:70px;margin-right:0}
+  .weekly-modal{width:100%;max-width:100%;padding:13px}
+  .weekly-modal-summary{display:flex;flex-wrap:wrap;gap:6px}
+  .inventory-detail-overlay{padding:8px}
+  .inventory-detail-dialog{width:100%;max-height:92dvh;border-radius:13px}
+  .inventory-detail-grid{grid-template-columns:minmax(0,1fr)}
+  .inventory-detail-field.full{grid-column:auto}
+  .inventory-detail-foot .btn{flex:1}
+  .toast{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));max-width:none;width:auto}
+}
+@media(max-width:390px){
+  .main{padding-left:9px!important;padding-right:9px!important}
+  .top .actions .btn{font-size:10px;padding:7px 8px}
+  .kpis,.analytics-kpis{gap:6px!important}
+  .kpi{padding:10px}
+  .kpi strong,.analytics-kpis .kpi strong{font-size:19px}
+  .section .actions .btn{flex:1 1 auto}
+  .month-calendar-grid{gap:2px}
+}
+@media(prefers-reduced-motion:reduce){.side#appSidebar{transition:none}}
